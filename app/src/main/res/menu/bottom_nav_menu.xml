@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="beranda"
+        android:icon="@drawable/home" />
+
+    <item
+        android:id="@+id/nav_reservasi"
+        android:title="Reservasi"
+        android:icon="@drawable/reservasi" />
+
+    <item
+        android:id="@+id/nav_riwayat"
+        android:title="riwayat"
+        android:icon="@drawable/riwayat" />
+
+</menu>
