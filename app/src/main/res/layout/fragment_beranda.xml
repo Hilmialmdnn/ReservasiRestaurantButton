@@ -108,6 +108,8 @@ Mulai reservasi sekarang dan pilih meja yang sesuai kebutuhanmu."
                 android:layout_height="wrap_content"
                 android:text="Pesan Sekarang"
                 android:layout_gravity="center"
+                android:backgroundTint="#32A8E0"
+                android:textColor="#FFFFFF"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
 
@@ -152,6 +154,8 @@ Mulai reservasi sekarang dan pilih meja yang sesuai kebutuhanmu."
                 android:layout_height="wrap_content"
                 android:text="Pesan Sekarang"
                 android:layout_gravity="center"
+                android:backgroundTint="#32A8E0"
+                android:textColor="#FFFFFF"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
 
@@ -196,6 +200,8 @@ Mulai reservasi sekarang dan pilih meja yang sesuai kebutuhanmu."
                 android:layout_height="wrap_content"
                 android:text="Pesan Sekarang"
                 android:layout_gravity="center"
+                android:backgroundTint="#32A8E0"
+                android:textColor="#FFFFFF"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
 

@@ -1,147 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".ReservasiFragment">
+    android:fillViewport="true"
+    android:background="#F5F5F5">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buat Reservasi Baru"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
-            android:id="@+id/tv_instruction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pilih detail dan waktu reservasi Anda."
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_header"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
-            android:id="@+id/label_tanggal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tanggal Reservasi"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_instruction"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_tanggal"
+        <!-- Card putih -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pilih Tanggal"
-            android:drawableEnd="@android:drawable/ic_menu_today"
-            android:focusable="false"
-            android:clickable="true"
-            app:layout_constraintTop_toBottomOf="@id/label_tanggal"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:id="@+id/label_waktu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Waktu Kedatangan"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/et_tanggal"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_waktu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pilih Waktu"
-            android:drawableEnd="@android:drawable/ic_lock_idle_alarm"
-            android:focusable="false"
-            android:clickable="true"
-            app:layout_constraintTop_toBottomOf="@id/label_waktu"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:id="@+id/label_jumlah_orang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jumlah Tamu (Orang)"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/et_waktu"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_jumlah_orang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Minimal 1, Maksimal 10"
-            android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@id/label_jumlah_orang"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:id="@+id/label_ruangan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pilih Tipe Ruangan"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/et_jumlah_orang"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <RadioGroup
-            android:id="@+id/radio_group_ruangan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
             android:orientation="vertical"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/label_ruangan"
-            app:layout_constraintStart_toStartOf="parent">
+            android:padding="20dp">
 
-            <RadioButton
-                android:id="@+id/rb_indoor"
-                android:layout_width="match_parent"
+            <!-- Judul -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Indoor (Area utama ber-AC)"
-                android:checked="true"/>
+                android:text="Reservasi"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:textSize="22sp"
+                android:paddingBottom="12dp" />
 
-            <RadioButton
-                android:id="@+id/rb_outdoor"
+            <!-- Garis pemisah -->
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Outdoor (Taman/Teras, cocok untuk santai)" />
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginBottom="12dp"/>
 
-            <RadioButton
-                android:id="@+id/rb_vip"
+            <!-- Tanggal -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal kedatangan*"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:paddingBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/edtTanggal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="VIP (Ruangan pribadi, minimal 4 orang)" />
-        </RadioGroup>
+                android:layout_height="45dp"
+                android:background="#E8E8E8"
+                android:hint="select a date..."
+                android:padding="10dp"
+                android:layout_marginBottom="14dp" />
 
-        <Button
-            android:id="@+id/btn_konfirmasi_reservasi"
+            <!-- Pilih waktu -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilih waktu*"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/edtWaktu"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#E8E8E8"
+                android:hint="Pilih tanggal kunjunganmu"
+                android:padding="10dp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Nama lengkap -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Lengkap*"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/edtNama"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#E8E8E8"
+                android:hint="Nama Lengkap"
+                android:textColor="#333333"
+                android:padding="10dp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- List menu -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="List menu *"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:paddingBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/edtMenu"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#E8E8E8"
+                android:hint="Pilih menu"
+                android:padding="10dp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnMenuList"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="Menu List"
+                android:backgroundTint="#32A8E0"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="18dp"/>
+
+            <!-- Untuk Berapa Orang -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Untuk Berapa Orang?*"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:paddingBottom="4dp"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="18dp">
+
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1 orang" android:textColor="#333333"/>
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2-4 orang" android:textColor="#333333"/>
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5-10 orang" android:textColor="#333333"/>
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10+ orang" android:textColor="#333333"/>
+            </RadioGroup>
+
+            <!-- Pilih Ruangan -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilih Ruangan"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:paddingBottom="4dp"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="26dp">
+
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VVIP" android:textColor="#333333"/>
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Indoor" android:textColor="#333333"/>
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Outdoor" android:textColor="#333333"/>
+            </RadioGroup>
+
+            <!-- Tombol pesan -->
+            <Button
+                android:id="@+id/btnPesan"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:text="Pesan"
+                android:backgroundTint="#32A8E0"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Biar bisa scroll -->
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Konfirmasi Reservasi"
-            android:layout_marginTop="32dp"
-            android:padding="12dp"
-            app:layout_constraintTop_toBottomOf="@id/radio_group_ruangan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="50dp"/>
+    </LinearLayout>
 
 </ScrollView>
