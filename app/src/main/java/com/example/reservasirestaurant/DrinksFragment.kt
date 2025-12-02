@@ -4,18 +4,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 
-class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
-
+class DrinksFragment : Fragment(R.layout.fragment_drinks) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnMenuList = view.findViewById<View>(R.id.btnMenuList)
+        val btnKembaliReservasi = view.findViewById<View>(R.id.btnKembaliReservasi)
 
-        btnMenuList.setOnClickListener {
+        btnKembaliReservasi.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.containerFragment, MenuListFragment())
+                .replace(R.id.containerFragment, ReservasiFragment())
                 .addToBackStack(null)
                 .commit()
+
         }
     }
 }
