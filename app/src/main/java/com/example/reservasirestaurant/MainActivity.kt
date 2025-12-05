@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.reservasirestaurant.HomeFragment
 import com.example.reservasirestaurant.ReservasiFragment
-import com.example.reservasirestaurant.RiwayatFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
