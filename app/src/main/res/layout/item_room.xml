@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card"
+    android:padding="12dp"
+    android:layout_marginTop="16dp">
+
+    <ImageView
+        android:id="@+id/ivRoomImage"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/indoor" />
+
+    <TextView
+        android:id="@+id/tvRoomName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Ruangan"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvRoomDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi ruangan akan tampil di sini."
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:layout_marginTop="6dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"/>
+
+    <Button
+        android:id="@+id/btnBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pesan Sekarang"
+        android:layout_gravity="center"
+        android:backgroundTint="#32A8E0"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
+

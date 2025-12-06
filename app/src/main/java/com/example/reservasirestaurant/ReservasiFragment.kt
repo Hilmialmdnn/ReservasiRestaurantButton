@@ -10,12 +10,26 @@ class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
         super.onViewCreated(view, savedInstanceState)
 
         val btnMenuList = view.findViewById<View>(R.id.btnMenuList)
+        val btnPesan = view.findViewById<View>(R.id.btnPesan)
 
-        btnMenuList.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.containerFragment, MenuListFragment())
-                .addToBackStack(null)
-                .commit()
+        btnPesan.setOnClickListener {
+            navigateToKonfirmasi()
         }
+        btnMenuList.setOnClickListener {
+            navigateToMenulist()
+        }
+    }
+    private fun navigateToMenulist() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.containerFragment, MenuListFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun navigateToKonfirmasi() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.containerFragment, KonfirmasiFragment())
+            .addToBackStack(null)
+            .commit()
     }
 }

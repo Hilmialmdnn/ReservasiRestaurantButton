@@ -1,14 +1,15 @@
 package com.example.reservasirestaurant
 
+import OnItemClickListener
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class HomeFragment : Fragment() {
+class BerandaFragment : Fragment(), OnItemClickListener{
 
-    open override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -38,5 +39,9 @@ class HomeFragment : Fragment() {
             .replace(R.id.containerFragment, ReservasiFragment())
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun onBookButtonClick(room: Room) {
+        navigateToReservasi()
     }
 }
