@@ -44,7 +44,7 @@ class LoginFragment : Fragment() {
             // TODO: Lakukan proses autentikasi ke backend/API di sini!
 
             // SIMULASI LOGIN BERHASIL:
-            if (email == "dzakilybesn@gmail.com" && password == "12345678") {
+            if (email == "a@gmail.com" && password == "1") {
                 Toast.makeText(context, "Login Berhasil! Selamat datang.", Toast.LENGTH_SHORT).show()
 
                 // Pindah ke MainActivity (asumsi ini halaman utama/Beranda)
