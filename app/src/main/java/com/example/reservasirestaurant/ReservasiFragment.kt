@@ -1,9 +1,14 @@
 package com.example.reservasirestaurant
 
+import ReservasiData
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import java.util.Calendar
 import java.text.SimpleDateFormat
@@ -11,14 +16,27 @@ import java.util.Locale
 
 class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
 
+    private lateinit var editWaktu: EditText
+    private lateinit var editNama: EditText
+    private lateinit var rgJumlahOrang: RadioGroup
+    private lateinit var rgPilihanRuangan: RadioGroup
+    private lateinit var editMenu: EditText
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val btnMenuList = view.findViewById<View>(R.id.btnMenuList)
         val btnPesan = view.findViewById<View>(R.id.btnPesan)
 
+
+        val jumlahorang = view.findViewById<RadioGroup>(R.id.jumlahorang)
+        val pilihruangan = view.findViewById<RadioGroup>(R.id.pilihruangan)
+
         // EditText Tanggal
         val editTanggal = view.findViewById<EditText>(R.id.editTanggal)
+        val editNama = view.findViewById<EditText>(R.id.editNama)
+        val editWaktu = view.findViewById<EditText>(R.id.editWaktu)
+        val editMenu = view.findViewById<EditText>(R.id.editMenu)
 
         // Calendar + Formatter
         val calendar = Calendar.getInstance()
@@ -44,6 +62,43 @@ class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
         }
 
         btnPesan.setOnClickListener {
+
+            val namaLengkap = editNama.text.toString().trim() // Gunakan trim() untuk menghilangkan spasi di awal/akhir
+            val tanggal = editTanggal.text.toString().trim()
+            val waktu = editWaktu.text.toString().trim()
+
+            val selectedIdOrang = jumlahorang.checkedRadioButtonId
+            val selectedIdRuangan = pilihruangan.checkedRadioButtonId
+
+            if (selectedIdOrang == -1 || selectedIdRuangan == -1) {
+                Toast.makeText(requireActivity(), "Harap pilih jumlah orang dan ruangan!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val selectedRbOrang = view.findViewById<RadioButton>(selectedIdOrang)
+            val selectedRbRuangan = view.findViewById<RadioButton>(selectedIdRuangan)
+
+            val jumlahOrang = selectedRbOrang.text.toString()
+            val ruangan = selectedRbRuangan.text.toString()
+
+            if (namaLengkap.isBlank() || tanggal.isBlank() || waktu.isBlank()) {
+                Toast.makeText(requireContext(), "Nama, Tanggal, dan Waktu wajib diisi!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val newReservasi = ReservasiData(
+                namaLengkap = namaLengkap,
+                tanggalKedatangan = tanggal,
+                waktu = waktu,
+                // Asumsi List Menu diambil dari edtMenu, kita ambil teksnya saja sementara.
+                listMenu = view.findViewById<EditText>(R.id.editMenu).text.toString().trim().ifBlank { "Tidak Ada" },
+                jumlahOrang = jumlahOrang,
+                ruangan = ruangan,
+                status = "Menunggu Konfirmasi" // Status awal yang bagus untuk riwayat
+            )
+
+            TempReservasiData.addReservasi(newReservasi)
+
             navigateToKonfirmasi()
         }
 

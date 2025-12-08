@@ -16,6 +16,15 @@
         android:textSize="28sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/tvEmptyState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Belum ada riwayat reservasi yang tercatat."
+        android:textSize="18sp"
+        android:textColor="#888888"
+        android:visibility="gone" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -23,7 +32,7 @@
         android:layout_marginBottom="12dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_riwayat"
+        android:id="@+id/rvriwayat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_riwayat" />

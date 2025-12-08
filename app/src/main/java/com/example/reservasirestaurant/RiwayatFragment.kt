@@ -24,39 +24,51 @@ class RiwayatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Buat data dummy (sesuai mockup)
-        val dataList = listOf(
-            DataRiwayat(
-                ruanganMeja = "Ruangan VIP – Meja 03",
-                tanggal = "12 Desember 2025",
-                waktu = "19:00 WIB",
-                jumlahOrang = 4,
-                tipeReservasi = "Reservasi Online",
-                status = "Berhasil"
-            ),
-            DataRiwayat(
-                ruanganMeja = "Outdoor Area – Meja 07",
-                tanggal = "10 Desember 2025",
-                waktu = "17:30 WIB",
-                jumlahOrang = 2,
-                tipeReservasi = "Reservasi Offline",
-                status = "Dibatalkan"
-            ),
-            DataRiwayat(
-                ruanganMeja = "Indoor – Meja 11",
-                tanggal = "08 Desember 2025",
-                waktu = "20:00 WIB",
-                jumlahOrang = 5,
-                tipeReservasi = "Reservasi Online",
-                status = "Menunggu Konfirmasi"
-            )
-        )
+        // 1. Ambil Data NYATA dari penyimpanan sementara (TempReservasiData)
+        val riwayatDataAsli = TempReservasiData.riwayatList
 
         // 2. Setup RecyclerView
-        val riwayatAdapter = RiwayatAdapter(dataList)
-        binding.rvRiwayat.layoutManager = LinearLayoutManager(context)
-        binding.rvRiwayat.adapter = riwayatAdapter
+        // PENTING: Gunakan requireContext() untuk LayoutManager, karena 'context' mungkin null
+        val riwayatAdapter = RiwayatAdapter(riwayatDataAsli)
+        binding.rvriwayat.layoutManager = LinearLayoutManager(requireContext()) // <-- Perbaikan 1
+        binding.rvriwayat.adapter = riwayatAdapter
+
+        // 3. [PENTING] Logika Empty State
+        if (riwayatDataAsli.isEmpty()) {
+            // Tampilkan pesan kosong
+            binding.tvEmptyState.visibility = View.VISIBLE
+            binding.rvriwayat.visibility = View.GONE
+        } else {
+            // Tampilkan list riwayat
+            binding.tvEmptyState.visibility = View.GONE
+            binding.rvriwayat.visibility = View.VISIBLE
+        }
     }
+
+    // Perbaikan 2: Pastikan data adapter diperbarui jika Fragment di-resume (misalnya, kembali dari KonfirmasiFragment)
+    override fun onResume() {
+        super.onResume()
+        // Panggil setup RecyclerView lagi untuk memuat data terbaru dari TempReservasiData
+        setupRecyclerView()
+    }
+
+    // Pindahkan logika RecyclerView ke fungsi terpisah agar dapat dipanggil ulang
+    private fun setupRecyclerView() {
+        val riwayatDataAsli = TempReservasiData.riwayatList
+
+        binding.rvriwayat.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvriwayat.adapter = RiwayatAdapter(riwayatDataAsli)
+
+        // Logika Empty State juga dipindahkan ke sini
+        if (riwayatDataAsli.isEmpty()) {
+            binding.tvEmptyState.visibility = View.VISIBLE
+            binding.rvriwayat.visibility = View.GONE
+        } else {
+            binding.tvEmptyState.visibility = View.GONE
+            binding.rvriwayat.visibility = View.VISIBLE
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

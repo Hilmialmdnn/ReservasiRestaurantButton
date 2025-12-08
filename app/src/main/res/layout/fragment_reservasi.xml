@@ -39,6 +39,7 @@
 
             <!-- Tanggal -->
             <TextView
+                android:id="@+id/tanggalkedatangan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tanggal kedatangan*"
@@ -69,7 +70,7 @@
                 android:paddingBottom="6dp"/>
 
             <EditText
-                android:id="@+id/edtWaktu"
+                android:id="@+id/editWaktu"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="#E8E8E8"
@@ -87,7 +88,7 @@
                 android:paddingBottom="6dp"/>
 
             <EditText
-                android:id="@+id/edtNama"
+                android:id="@+id/editNama"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="#E8E8E8"
@@ -106,7 +107,7 @@
                 android:paddingBottom="6dp"/>
 
             <EditText
-                android:id="@+id/edtMenu"
+                android:id="@+id/editMenu"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="#E8E8E8"
@@ -133,6 +134,7 @@
                 android:paddingBottom="4dp"/>
 
             <RadioGroup
+                android:id="@+id/jumlahorang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -154,6 +156,7 @@
                 android:paddingBottom="4dp"/>
 
             <RadioGroup
+                android:id="@+id/pilihruangan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
