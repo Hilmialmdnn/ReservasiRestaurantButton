@@ -28,7 +28,7 @@ class DrinksAdapter(private val DrinksList: List<DrinksModel>) :
         val item = DrinksList[position]
         holder.imgDrinks.setImageResource(item.imageRes)
         holder.txtDrinksName.text = item.name
-        holder.txtDrinksName.text = item.price
+        holder.txtMenuPrice.text = item.price
     }
 
     override fun getItemCount() = DrinksList.size

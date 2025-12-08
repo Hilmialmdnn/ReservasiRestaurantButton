@@ -47,13 +47,17 @@
                 android:paddingBottom="6dp"/>
 
             <EditText
-                android:id="@+id/edtTanggal"
+                android:id="@+id/editTanggal"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="#E8E8E8"
                 android:hint="select a date..."
                 android:padding="10dp"
-                android:layout_marginBottom="14dp" />
+                android:layout_marginBottom="14dp"
+                android:drawableEnd="@drawable/ic_calender"
+                android:focusable="false"
+                android:clickable="true"
+                />
 
             <!-- Pilih waktu -->
             <TextView
