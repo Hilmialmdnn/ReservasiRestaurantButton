@@ -24,13 +24,10 @@ class RegistrasiFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // --- Toggle ke Login ---
         binding.btnLogin.setOnClickListener {
-            // Pindah kembali ke LoginFragment
             (activity as AuthActivity).showFragment(LoginFragment())
         }
 
-        // --- Proses Registrasi ---
         binding.btnSubmitReg.setOnClickListener {
             val email = binding.etEmailReg.text.toString().trim()
             val password = binding.etPasswordReg.text.toString().trim()
@@ -48,10 +45,8 @@ class RegistrasiFragment : Fragment() {
 
             // TODO: Lakukan proses registrasi ke backend/API di sini!
 
-            // SIMULASI REGISTRASI BERHASIL:
             Toast.makeText(context, "Registrasi Berhasil! Silakan Login.", Toast.LENGTH_LONG).show()
 
-            // Pindah otomatis kembali ke halaman Login
             (activity as AuthActivity).showFragment(LoginFragment())
         }
     }

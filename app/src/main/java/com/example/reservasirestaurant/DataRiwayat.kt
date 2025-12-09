@@ -5,6 +5,6 @@ data class DataRiwayat(
     val tanggal: String,
     val waktu: String,
     val jumlahOrang: Int,
-    val tipeReservasi: String, // Online / Offline
-    val status: String // Berhasil / Dibatalkan / Menunggu Konfirmasi
+    val tipeReservasi: String,
+    val status: String
 )

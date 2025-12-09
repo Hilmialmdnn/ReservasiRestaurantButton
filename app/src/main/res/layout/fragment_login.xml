@@ -71,16 +71,6 @@
         app:layout_constraintTop_toBottomOf="@id/et_email"
         android:layout_marginTop="8dp"/>
 
-    <TextView
-        android:id="@+id/tv_lupa_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lupa password?"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@id/et_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
-
     <Button
         android:id="@+id/btn_Submit"
         android:layout_width="120dp"

@@ -25,13 +25,11 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // --- Toggle ke Registrasi ---
         binding.btnRegistrasi.setOnClickListener {
             // Panggil fungsi di AuthActivity untuk menukar Fragment
             (activity as AuthActivity).showFragment(RegistrasiFragment())
         }
 
-        // --- Proses Login ---
         binding.btnSubmit.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
@@ -43,14 +41,12 @@ class LoginFragment : Fragment() {
 
             // TODO: Lakukan proses autentikasi ke backend/API di sini!
 
-            // SIMULASI LOGIN BERHASIL:
             if (email == "a@gmail.com" && password == "1") {
                 Toast.makeText(context, "Login Berhasil! Selamat datang.", Toast.LENGTH_SHORT).show()
 
-                // Pindah ke MainActivity (asumsi ini halaman utama/Beranda)
                 val intent = Intent(activity, MainActivity::class.java)
                 startActivity(intent)
-                activity?.finish() // Tutup AuthActivity
+                activity?.finish()
             } else {
                 Toast.makeText(context, "Email atau Password salah.", Toast.LENGTH_SHORT).show()
             }

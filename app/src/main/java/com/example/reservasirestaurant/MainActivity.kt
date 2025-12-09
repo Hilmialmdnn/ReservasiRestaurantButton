@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
 
-        // Menampilkan fragment Home pertama kali
         loadFragment(BerandaFragment())
 
         bottomNav.setOnItemSelectedListener {

@@ -16,12 +16,6 @@ import java.util.Locale
 
 class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
 
-    private lateinit var editWaktu: EditText
-    private lateinit var editNama: EditText
-    private lateinit var rgJumlahOrang: RadioGroup
-    private lateinit var rgPilihanRuangan: RadioGroup
-    private lateinit var editMenu: EditText
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -32,20 +26,18 @@ class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
         val jumlahorang = view.findViewById<RadioGroup>(R.id.jumlahorang)
         val pilihruangan = view.findViewById<RadioGroup>(R.id.pilihruangan)
 
-        // EditText Tanggal
+
         val editTanggal = view.findViewById<EditText>(R.id.editTanggal)
         val editNama = view.findViewById<EditText>(R.id.editNama)
         val editWaktu = view.findViewById<EditText>(R.id.editWaktu)
         val editMenu = view.findViewById<EditText>(R.id.editMenu)
 
-        // Calendar + Formatter
+
         val calendar = Calendar.getInstance()
         val sdf = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("id", "ID"))
 
-        // Isi default tanggal saat ini
         editTanggal.setText(sdf.format(calendar.time))
 
-        // Buka date picker saat klik editTanggal
         editTanggal.setOnClickListener {
             val datePicker = DatePickerDialog(
                 requireActivity(),
@@ -63,7 +55,7 @@ class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
 
         btnPesan.setOnClickListener {
 
-            val namaLengkap = editNama.text.toString().trim() // Gunakan trim() untuk menghilangkan spasi di awal/akhir
+            val namaLengkap = editNama.text.toString().trim()
             val tanggal = editTanggal.text.toString().trim()
             val waktu = editWaktu.text.toString().trim()
 
@@ -90,11 +82,10 @@ class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
                 namaLengkap = namaLengkap,
                 tanggalKedatangan = tanggal,
                 waktu = waktu,
-                // Asumsi List Menu diambil dari edtMenu, kita ambil teksnya saja sementara.
                 listMenu = view.findViewById<EditText>(R.id.editMenu).text.toString().trim().ifBlank { "Tidak Ada" },
                 jumlahOrang = jumlahOrang,
                 ruangan = ruangan,
-                status = "Menunggu Konfirmasi" // Status awal yang bagus untuk riwayat
+                status = "Menunggu Konfirmasi"
             )
 
             TempReservasiData.addReservasi(newReservasi)

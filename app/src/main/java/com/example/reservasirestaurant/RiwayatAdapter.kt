@@ -1,6 +1,5 @@
 package com.example.reservasirestaurant
 
-// Hapus import 'ReservasiData' yang berdiri sendiri jika ReservasiData berada di package yang sama
 
 import ReservasiData
 import android.view.LayoutInflater
@@ -9,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.reservasirestaurant.databinding.ItemRiwayatBinding
 
-// PERBAIKAN 1: Ganti List<DataRiwayat> menjadi List<ReservasiData>
 class RiwayatAdapter(private val riwayatList: List<ReservasiData>) :
     RecyclerView.Adapter<RiwayatAdapter.RiwayatViewHolder>() {
 
@@ -17,14 +15,13 @@ class RiwayatAdapter(private val riwayatList: List<ReservasiData>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: ReservasiData) {
-            // PERBAIKAN 3 (Asumsi): Menggunakan data.pilihanRuangan
             binding.tvRuanganMeja.text = data.ruangan
-            binding.tvTanggalWaktu.text = "${data.tanggalKedatangan} • ${data.waktu}" // Menggunakan waktuKedatangan
+            binding.tvTanggalWaktu.text = "${data.tanggalKedatangan} • ${data.waktu}"
             binding.tvJumlahOrang.text = "${data.jumlahOrang} Orang"
             binding.tvTipeReservasi.text = data.listMenu
             binding.tvStatusTeks.text = data.status
 
-            // Logika pewarnaan status
+            // pewarnaan status
             val color: Int = when (data.status) {
                 "Berhasil" -> ContextCompat.getColor(binding.root.context, R.color.green_success)
                 "Dibatalkan" -> ContextCompat.getColor(binding.root.context, R.color.red_cancel)
@@ -39,9 +36,7 @@ class RiwayatAdapter(private val riwayatList: List<ReservasiData>) :
         return RiwayatViewHolder(binding)
     }
 
-    // PERBAIKAN 2: Tambahkan fungsi wajib onBindViewHolder yang hilang
     override fun onBindViewHolder(holder: RiwayatViewHolder, position: Int) {
-        // Panggil fungsi bind di View Holder Anda
         holder.bind(riwayatList[position])
     }
 
