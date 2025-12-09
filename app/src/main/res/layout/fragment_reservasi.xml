@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="#E8E8E8"
-                android:hint="Pilih tanggal kunjunganmu"
+                android:hint="Isi jam kedatangan"
                 android:padding="10dp"
                 android:layout_marginBottom="14dp" />
 
