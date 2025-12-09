@@ -21,7 +21,6 @@ class RiwayatAdapter(private val riwayatList: List<ReservasiData>) :
             binding.tvTipeReservasi.text = data.listMenu
             binding.tvStatusTeks.text = data.status
 
-            // pewarnaan status
             val color: Int = when (data.status) {
                 "Berhasil" -> ContextCompat.getColor(binding.root.context, R.color.green_success)
                 "Dibatalkan" -> ContextCompat.getColor(binding.root.context, R.color.red_cancel)

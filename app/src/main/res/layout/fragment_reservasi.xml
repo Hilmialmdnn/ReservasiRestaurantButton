@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Card putih -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,7 +18,6 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Judul -->
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
@@ -30,14 +28,12 @@
                 android:textSize="22sp"
                 android:paddingBottom="12dp" />
 
-            <!-- Garis pemisah -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DDDDDD"
                 android:layout_marginBottom="12dp"/>
 
-            <!-- Tanggal -->
             <TextView
                 android:id="@+id/tanggalkedatangan"
                 android:layout_width="wrap_content"
@@ -60,7 +56,6 @@
                 android:clickable="true"
                 />
 
-            <!-- Pilih waktu -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,7 +73,6 @@
                 android:padding="10dp"
                 android:layout_marginBottom="14dp" />
 
-            <!-- Nama lengkap -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +91,6 @@
                 android:padding="10dp"
                 android:layout_marginBottom="14dp" />
 
-            <!-- List menu -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,7 +117,6 @@
                 android:textColor="#FFFFFF"
                 android:layout_marginBottom="18dp"/>
 
-            <!-- Untuk Berapa Orang -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,7 +138,6 @@
                 <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10+ orang" android:textColor="#333333"/>
             </RadioGroup>
 
-            <!-- Pilih Ruangan -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,7 +158,6 @@
                 <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Outdoor" android:textColor="#333333"/>
             </RadioGroup>
 
-            <!-- Tombol pesan -->
             <Button
                 android:id="@+id/btnPesan"
                 android:layout_width="120dp"
@@ -179,7 +169,6 @@
 
         </LinearLayout>
 
-        <!-- Biar bisa scroll -->
         <View
             android:layout_width="match_parent"
             android:layout_height="50dp"/>

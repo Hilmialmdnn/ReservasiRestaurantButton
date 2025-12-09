@@ -30,7 +30,6 @@ class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
         val editTanggal = view.findViewById<EditText>(R.id.editTanggal)
         val editNama = view.findViewById<EditText>(R.id.editNama)
         val editWaktu = view.findViewById<EditText>(R.id.editWaktu)
-        val editMenu = view.findViewById<EditText>(R.id.editMenu)
 
 
         val calendar = Calendar.getInstance()
@@ -63,7 +62,7 @@ class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
             val selectedIdRuangan = pilihruangan.checkedRadioButtonId
 
             if (selectedIdOrang == -1 || selectedIdRuangan == -1) {
-                Toast.makeText(requireActivity(), "Harap pilih jumlah orang dan ruangan!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Harap pilih jumlah orang dan ruangan!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -85,6 +84,7 @@ class ReservasiFragment : Fragment(R.layout.fragment_reservasi) {
                 listMenu = view.findViewById<EditText>(R.id.editMenu).text.toString().trim().ifBlank { "Tidak Ada" },
                 jumlahOrang = jumlahOrang,
                 ruangan = ruangan,
+
                 status = "Menunggu Konfirmasi"
             )
 

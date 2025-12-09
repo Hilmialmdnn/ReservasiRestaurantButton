@@ -25,11 +25,6 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnRegistrasi.setOnClickListener {
-            // Panggil fungsi di AuthActivity untuk menukar Fragment
-            (activity as AuthActivity).showFragment(RegistrasiFragment())
-        }
-
         binding.btnSubmit.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
