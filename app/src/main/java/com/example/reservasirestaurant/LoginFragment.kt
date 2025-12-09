@@ -26,7 +26,6 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnRegistrasi.setOnClickListener {
-            // Panggil fungsi di AuthActivity untuk menukar Fragment
             (activity as AuthActivity).showFragment(RegistrasiFragment())
         }
 
@@ -39,7 +38,6 @@ class LoginFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            // TODO: Lakukan proses autentikasi ke backend/API di sini!
 
             if (email == "a@gmail.com" && password == "1") {
                 Toast.makeText(context, "Login Berhasil! Selamat datang.", Toast.LENGTH_SHORT).show()
